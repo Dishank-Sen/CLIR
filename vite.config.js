@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: './public', // Keep this if your root is public
+  root: './', // Keep this if your root is public
   build: {
-    outDir: '../dist',
     rollupOptions: {
-      input: 'index.html'
+      input: './public/index.html'
     }
   },
   server: {
