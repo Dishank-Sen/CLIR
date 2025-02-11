@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: './', // Keep this if your root is public
+  root: './',
   build: {
     rollupOptions: {
       input: './public/index.html'
