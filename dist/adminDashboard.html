@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIR-IIT Roorkee Clubs Hub</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <script src="./javascript/authenticate.js"></script>
+    <script src="./javascript/getInfo.js"></script>
+    <script src="./javascript/logout.js"></script>
+    <script src="./javascript/restrictAdmin.js"></script>
+    <script src="./javascript/getAdminInfo.js"></script>
+    <script src="./javascript/addResource.js"></script>
+    <script src="./javascript/addMember.js"></script>
+</head>
+
+<body class="bg-green-700">
+    <div class="headerSection">
+        <div
+            class="mainPortion flex flex-wrap justify-between items-center mx-4 lg:mx-10 xl:mx-20 my-20 py-6 bg-white rounded-full">
+            <div class="firstPortion lg:px-4 px-2">
+                <div class=" flex items-center flex-wrap">
+                    <div class="icon sm:pl-2 sm:pr-10 px-1">
+                        <a href="/">
+                            <!-- for dekstop -->
+                            <img src="./images/logo7.png" alt="" class="h-10 w-auto hidden xl:block ">
+                            <!-- for mobile -->
+                            <img src="./images/logo6.png" alt="" class="h-10 w-auto block xl:hidden ">
+                        </a>
+                    </div>
+                    <div class="hidden lg:flex">
+                        <div
+                            class="elements flex items-center space-x-8 flex-wrap justify-between lg:flex px-2 text-gray-500 text-lg">
+                            <div class="group relative">
+                                <span><a href="/clubs">Clubs</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/dashboard">Dashboard</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/adminPortal">Admin Portal</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/announcement">Announcement</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/createClub">Create Club</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="secondPortion px-1 sm:px-4">
+                <div class="flex items-center space-x-2 text-lg">
+                    <div id="login"
+                        class="logIn bg-gray-200 rounded-full px-4 py-2 sm:px-6 sm:py-4 cursor-pointer hover:bg-gray-300">
+                        <span><a href="/login">Log In</a></span>
+                    </div>
+                    <div id="signup"
+                        class="SignIn bg-gray-800 text-white px-4 py-2 sm:px-6 sm:py-4 rounded-full cursor-pointer hover:bg-gray-700">
+                        <span><a href="/signup">Sign Up</a></span>
+                    </div>
+                    <div>
+                        <img src="./images/profile.svg" alt="" class="h-14 w-auto hidden px-4 cursor-pointer"
+                            id="profile">
+                    </div>
+                    <div>
+                        <img src="./images/menu.svg" alt="" class="h-6 w-auto block lg:hidden px-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown hidden absolute right-10 top-48 w-[400px] h-[500px] bg-white border border-gray-200 rounded-lg shadow-lg z-10"
+        id="profileDropdown">
+
+        <div class="p-4 border-b border-gray-200 flex items-center justify-center flex-col">
+            <p id="dropdown-user-name" class="font-medium text-gray-700">User Name</p>
+            <p id="dropdown-user-email" class="text-sm text-gray-500">user@example.com</p>
+        </div>
+        <div class="p-4 border-b border-gray-200 flex items-center justify-center flex-col">
+            <p id="logout" class="font-medium text-gray-700 cursor-pointer">Logout -></p>
+        </div>
+
+    </div>
+
+
+    <!-- club description -->
+    <div class="flex items-center justify-center">
+        <span id="clubName" class="text-4xl text-yellow-400 font-bold">clubName</span>
+    </div>
+
+    <!-- Add Resources Section -->
+    <div class="resources-section bg-white p-6 rounded-lg shadow-lg mx-4 lg:mx-10 xl:mx-20 my-10">
+        <h2 class="text-2xl font-bold text-gray-700 mb-4">Add Resources</h2>
+
+        <!-- File Upload Form -->
+        <form id="fileForm" enctype="multipart/form-data">
+
+            <!-- Upload File Section -->
+            <label class="block text-lg font-medium text-gray-600 mb-2">Upload a File:</label>
+            <input type="file" name="file" id="resourceFile" class="mb-2 border rounded p-2 w-full">
+            <label class="block text-lg font-medium text-gray-600 mb-2">File Description:</label>
+            <textarea name="fileDescription" id="fileDescription" placeholder="Enter file description..."
+                class="mb-4 border rounded p-2 w-full"></textarea>
+
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Submit File
+            </button>
+            <hr class="my-6 border-gray-300">
+        </form>
+        <form id="linkForm">
+            <!-- Add Link Section -->
+            <label class="block text-lg font-medium text-gray-600 mb-2">Add a Link:</label>
+            <input type="url" name="resourceLink" id="resourceLink" placeholder="Enter link..."
+                class="mb-2 border rounded p-2 w-full">
+            <label class="block text-lg font-medium text-gray-600 mb-2">Link Description:</label>
+            <textarea name="linkDescription" id="linkDescription" placeholder="Enter link description..."
+                class="mb-4 border rounded p-2 w-full"></textarea>
+
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Submit Link
+            </button>
+        </form>
+
+        <!-- Success/Error Message -->
+        <p id="resourceMessage" class="mt-4 text-lg text-gray-700 hidden"></p>
+    </div>
+
+
+    <!-- add members -->
+    <div class="member-section bg-white p-6 rounded-lg shadow-lg mx-4 lg:mx-10 xl:mx-20 my-10">
+        <h2 class="text-2xl font-bold text-gray-700 mb-4">Add Member</h2>
+        <form id="memberForm">
+            <label class="block text-lg font-medium text-gray-600 mb-2">Name</label>
+            <input type="text" name="memberName" id="memberName" placeholder="Enter Name"
+                class="mb-2 border rounded p-2 w-full">
+            <label class="block text-lg font-medium text-gray-600 mb-2">Email</label>
+            <input type="email" name="memberEmail" id="memberEmail" placeholder="Enter Email"
+                class="mb-2 border rounded p-2 w-full">
+            <label class="block text-lg font-medium text-gray-600 mb-2">Set Password</label>
+            <input type="password" name="memberPassword" id="memberPassword" placeholder="Enter Password"
+                class="mb-2 border rounded p-2 w-full">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Add Member
+            </button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

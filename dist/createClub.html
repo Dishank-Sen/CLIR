@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIR-IIT Roorkee Clubs Hub</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <script src="./javascript/authenticate.js"></script>
+    <script src="./javascript/getInfo.js"></script>
+    <script src="./javascript/logout.js"></script>
+    <script src="./javascript/createClub.js"></script>
+</head>
+
+<body class="bg-[#d2e823]">
+    <div class="headerSection">
+        <div
+            class="mainPortion flex flex-wrap justify-between items-center mx-4 lg:mx-10 xl:mx-20 my-20 py-6 bg-white rounded-full">
+            <div class="firstPortion lg:px-4 px-2">
+                <div class=" flex items-center flex-wrap">
+                    <div class="icon sm:pl-2 sm:pr-10 px-1">
+                        <a href="/">
+                            <!-- for dekstop -->
+                            <img src="./images/logo7.png" alt="" class="h-10 w-auto hidden xl:block ">
+                            <!-- for mobile -->
+                            <img src="./images/logo6.png" alt="" class="h-10 w-auto block xl:hidden ">
+                        </a>
+                    </div>
+                    <div class="hidden lg:flex">
+                        <div
+                            class="elements flex items-center space-x-8 flex-wrap justify-between lg:flex px-2 text-gray-500 text-lg">
+                            <div class="group relative">
+                                <span><a href="/clubs">Clubs</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/dashboard">Dashboard</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/adminPortal">Admin Portal</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/announcement">Announcement</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/createClub">Create Club</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="secondPortion px-1 sm:px-4">
+                <div class="flex items-center space-x-2 text-lg">
+                    <div id="login"
+                        class="logIn bg-gray-200 rounded-full px-4 py-2 sm:px-6 sm:py-4 cursor-pointer hover:bg-gray-300">
+                        <span><a href="/login">Log In</a></span>
+                    </div>
+                    <div id="signup"
+                        class="SignIn bg-gray-800 text-white px-4 py-2 sm:px-6 sm:py-4 rounded-full cursor-pointer hover:bg-gray-700">
+                        <span><a href="/signup">Sign Up</a></span>
+                    </div>
+                    <div>
+                        <img src="./images/profile.svg" alt="" class="h-14 w-auto hidden px-4 cursor-pointer"
+                            id="profile">
+                    </div>
+                    <div>
+                        <img src="./images/menu.svg" alt="" class="h-6 w-auto block lg:hidden px-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown hidden absolute right-10 top-48 w-[400px] h-[500px] bg-white border border-gray-200 rounded-lg shadow-lg z-10"
+        id="profileDropdown">
+
+        <div class="p-4 border-b border-gray-200 flex items-center justify-center flex-col">
+            <p id="dropdown-user-name" class="font-medium text-gray-700">User Name</p>
+            <p id="dropdown-user-email" class="text-sm text-gray-500">user@example.com</p>
+        </div>
+        <div class="p-4 border-b border-gray-200 flex items-center justify-center flex-col">
+            <p id="logout" class="font-medium text-gray-700 cursor-pointer">Logout -></p>
+        </div>
+
+    </div>
+    <!-- detail form -->
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="w-full sm:max-w-2xl bg-white p-6 rounded-xl shadow-lg mx-2">
+            <h2 class="text-2xl font-bold text-center mb-6">Create a Club</h2>
+
+            <form id="clubForm" class="space-y-4">
+                <!-- Club Name -->
+                <div>
+                    <label class="block text-sm font-medium">Club Name</label>
+                    <input type="text" id="clubName" class="w-full p-2 border rounded-md" placeholder="Enter club name"
+                        required>
+                </div>
+
+                <!-- Admin Details -->
+                <div>
+                    <label class="block text-sm font-medium">Admin Name</label>
+                    <input type="text" id="adminName" class="w-full p-2 border rounded-md" placeholder="Admin full name"
+                        required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium">Admin Email</label>
+                    <input type="email" id="adminEmail" class="w-full p-2 border rounded-md"
+                        placeholder="admin@example.com" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium">Admin Phone</label>
+                    <input type="tel" id="adminPhone" class="w-full p-2 border rounded-md" placeholder="9876543210"
+                        required>
+                </div>
+
+                <!-- Admin Profile Image -->
+                <div>
+                    <label class="block text-sm font-medium">Admin Profile Image (Optional)</label>
+                    <input type="file" id="adminProfileImage" class="w-full p-2 border rounded-md">
+                </div>
+
+                <!-- Club Icon -->
+                <div>
+                    <label class="block text-sm font-medium">Club Icon</label>
+                    <input type="file" id="clubIcon" class="w-full p-2 border rounded-md" required>
+                </div>
+
+                <!-- Club Password -->
+                <div>
+                    <label class="block text-sm font-medium">Club Password</label>
+                    <input type="password" id="clubPassword" class="w-full p-2 border rounded-md"
+                        placeholder="Enter a strong password" required>
+                </div>
+
+                <!-- Institute Permission Document -->
+                <div>
+                    <label class="block text-sm font-medium">Institute Permission Document</label>
+                    <input type="file" id="permissionDocument" class="w-full p-2 border rounded-md" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium">Institute Permission Password</label>
+                    <input type="password" id="permissionPassword" class="w-full p-2 border rounded-md"
+                        placeholder="Document password" required>
+                </div>
+
+                <!-- Club Category -->
+                <div>
+                    <label class="block text-sm font-medium">Club Category</label>
+                    <select id="category" class="w-full p-2 border rounded-md">
+                        <option>Technical</option>
+                        <option>Cultural</option>
+                        <option>Social</option>
+                        <option>Branch Specific</option>
+                        <option>Magazines</option>
+                        <option>Miscellaneous</option>
+                    </select>
+                </div>
+
+                <!-- Club Email -->
+                <div>
+                    <label class="block text-sm font-medium">Club Email</label>
+                    <input type="email" id="clubEmail" class="w-full p-2 border rounded-md"
+                        placeholder="club@example.com" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">
+                    Create Club
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
