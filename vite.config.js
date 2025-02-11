@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  root: './public', // Vite should use 'public' as the root
+  root: './public', // Set root to public since index.html is there
   build: {
     outDir: '../dist', // Ensure build output is outside 'public'
+    emptyOutDir: true, // Cleans the output directory before building
     rollupOptions: {
-      input: 'index.html' // This works since root is 'public'
+      input: 'index.html' // Ensure index.html is inside public
     }
   },
   server: {
