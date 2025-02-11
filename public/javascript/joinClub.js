@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const email = document.getElementById('email').value;
         const clubPassword = document.getElementById('clubPassword').value;
         try{
-            const response = await fetch('http://localhost:3000/api/joinClub', {
+            const response = await fetch('/api/joinClub', {
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json',

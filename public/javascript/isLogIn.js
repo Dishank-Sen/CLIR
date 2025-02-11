@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const userId = localStorage.getItem('userId');
 
     try{
-        const response = await fetch('http://localhost:3000/api/getInfo', {
+        const response = await fetch('/api/getInfo', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log("logged in")
         } else {
             const errorData = await response.json();
-            window.location.replace('http://localhost:3000/login')
+            window.location.replace('/login')
         }
     }catch(err){
         console.log(err)

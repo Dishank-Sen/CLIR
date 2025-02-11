@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async (e) => {
     const signup = document.getElementById('signup');
     const userId = localStorage.getItem('userId');
     try{
-        const response = await fetch('http://localhost:3000/api/verify', {
+        const response = await fetch('/api/verify', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

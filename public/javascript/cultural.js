@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const clubSection = document.getElementById('clubSection'); 
     try{
-        const response = await fetch('http://localhost:3000/api/cultural', {
+        const response = await fetch('/api/cultural', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

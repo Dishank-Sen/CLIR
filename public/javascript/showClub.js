@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
 
     const userEmail = await waitForEmail();
     try{
-        const response = await fetch('http://localhost:3000/api/showClub', {
+        const response = await fetch('/api/showClub', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

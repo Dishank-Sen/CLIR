@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const profileDropdown = document.getElementById('profileDropdown');
     const profileIcon = document.getElementById('profile');
     try{
-        const response = await fetch('http://localhost:3000/api/getInfo', {
+        const response = await fetch('/api/getInfo', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

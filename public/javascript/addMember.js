@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const memberPassword = document.getElementById('memberPassword').value;
         const clubName = document.getElementById('clubName').textContent;
         try{
-            const response = await fetch('http://localhost:3000/api/addMember', {
+            const response = await fetch('/api/addMember', {
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json',

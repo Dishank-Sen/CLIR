@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded',async () => {
         const password = document.getElementById('password').value;
     
         try{
-          const response = await fetch('http://localhost:3000/api/adminVerify', {
+          const response = await fetch('/api/adminVerify', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded',async () => {
             const data = await response.json();
             const adminId = data.adminId;
             localStorage.setItem('adminId', adminId);
-            window.location.replace('http://localhost:3000/adminDashboard');
+            window.location.replace('/adminDashboard');
           } else {
             const errorData = await response.json();
             // console.log(errorData);

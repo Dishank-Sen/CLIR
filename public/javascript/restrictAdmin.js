@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     try{
         const userId = localStorage.getItem('adminId');
-        const response = await fetch('http://localhost:3000/api/restrictAdmin', {
+        const response = await fetch('/api/restrictAdmin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -12,12 +12,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (response.ok) {
             const data = await response.json();
             console.log(data.message);
-            if(window.location != 'http://localhost:3000/adminDashboard'){
-                window.location.replace('http://localhost:3000/adminDashboard');
+            if(window.location != '/adminDashboard'){
+                window.location.replace('/adminDashboard');
             }
         } else {
             const errorData = await response.json();
-            window.location.replace('http://localhost:3000/adminPortal');
+            window.location.replace('/adminPortal');
         }
     }catch(err){
         console.log(err)

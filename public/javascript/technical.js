@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const clubSection = document.getElementById('clubSection'); 
     try{
-        const response = await fetch('http://localhost:3000/api/technical', {
+        const response = await fetch('/api/technical', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

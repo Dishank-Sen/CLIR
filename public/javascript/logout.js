@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const logout = document.getElementById('logout');
     logout.addEventListener('click', async () => {
         try{
-            const response = await fetch('http://localhost:3000/api/logout', {
+            const response = await fetch('/api/logout', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (response.ok) {
                 console.log('Logged out successfully');
                 localStorage.removeItem('userId'); 
-                window.location.replace('http://localhost:3000/login') 
+                window.location.replace('/login') 
             } else {
                 const errorData = await response.json();
             }

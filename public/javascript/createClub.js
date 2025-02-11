@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     formData.append("permissionDocument", document.getElementById("permissionDocument").files[0]);
 
     try {
-      const response = await fetch("http://localhost:3000/api/createClub", {
+      const response = await fetch("/api/createClub", {
         method: "POST",
         body: formData, // No need to set `Content-Type`, Fetch will set it automatically
       });
@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log(data);
         console.log(data.message);
         alert(data.message);
-        // window.location.replace('http://localhost:3000/login')
       } else {
         const errorData = await response.json();
         alert(`Error: ${errorData.message}`);

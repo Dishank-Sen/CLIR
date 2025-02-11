@@ -6,7 +6,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
     const confirmPassword = document.getElementById('confirmPassword').value;
     if(password == confirmPassword) {
       try {
-        const response = await fetch('http://localhost:3000/api/signup', {
+        const response = await fetch('/api/signup', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         if (response.ok) {
           const data = await response.json();
           // console.log(data);
-          window.location.replace('http://localhost:3000/login')
+          window.location.replace('/login')
         } else {
           const errorData = await response.json();
           alert(`Error: ${errorData.message}`); // Display error message
