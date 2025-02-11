@@ -44,6 +44,12 @@ const upload = multer({ storage });
 connectDB();
 connectClubDB();
 
+
+
+app.get('/api',(req,res) => {
+  res.send("this is api page");
+});
+
 app.get('/',(req,res) => {
   res.sendFile(path.join(__dirname,'../public','index.html'));
 });
