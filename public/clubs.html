@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLIR-IIT Roorkee Clubs Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./javascript/animation/carousel.js"></script>
+  <script src="./javascript/authenticate.js"></script>
+  <script src="./javascript/getInfo.js"></script>
+  <script src="./javascript/logout.js"></script>
+</head>
+
+<body class="bg-green-700">
+  <div class="headerSection">
+    <div
+      class="mainPortion flex flex-wrap justify-between items-center mx-4 lg:mx-10 xl:mx-20 my-20 py-6 bg-white rounded-full">
+      <div class="firstPortion lg:px-4 px-2">
+        <div class=" flex items-center flex-wrap">
+          <div class="icon sm:pl-2 sm:pr-10 px-1">
+            <a href="/">
+              <!-- for dekstop -->
+              <img src="./images/logo7.png" alt="" class="h-10 w-auto hidden xl:block ">
+              <!-- for mobile -->
+              <img src="./images/logo6.png" alt="" class="h-10 w-auto block xl:hidden ">
+            </a>
+          </div>
+          <div class="hidden lg:flex">
+            <div
+              class="elements flex items-center space-x-8 flex-wrap justify-between lg:flex px-2 text-gray-500 text-lg">
+              <div class="group relative">
+                <span><a href="/clubs">Clubs</a></span>
+                <span
+                  class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                <span
+                  class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+              </div>
+              <div class="group relative">
+                <span><a href="/dashboard">Dashboard</a></span>
+                <span
+                  class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                <span
+                  class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+              </div>
+              <div class="group relative">
+                <span><a href="/adminPortal">Admin Portal</a></span>
+                <span
+                  class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                <span
+                  class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+              </div>
+              <div class="group relative">
+                <span><a href="/announcement">Announcement</a></span>
+                <span
+                  class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                <span
+                  class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+              </div>
+              <div class="group relative">
+                <span><a href="/createClub">Create Club</a></span>
+                <span
+                  class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                <span
+                  class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="secondPortion px-1 sm:px-4">
+        <div class="flex items-center space-x-2 text-lg">
+          <div id="login"
+            class="logIn bg-gray-200 rounded-full px-4 py-2 sm:px-6 sm:py-4 cursor-pointer hover:bg-gray-300">
+            <span><a href="/login">Log In</a></span>
+          </div>
+          <div id="signup"
+            class="SignIn bg-gray-800 text-white px-4 py-2 sm:px-6 sm:py-4 rounded-full cursor-pointer hover:bg-gray-700">
+            <span><a href="/signup">Sign Up</a></span>
+          </div>
+          <div>
+            <img src="./images/profile.svg" alt="" class="h-14 w-auto hidden px-4 cursor-pointer" id="profile">
+          </div>
+          <div>
+            <img src="./images/menu.svg" alt="" class="h-6 w-auto block lg:hidden px-4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="dropdown hidden absolute right-10 top-48 w-[400px] h-[500px] bg-white border border-gray-200 rounded-lg shadow-lg z-10"
+    id="profileDropdown">
+
+    <div class="p-4 border-b border-gray-200 flex items-center justify-center flex-col">
+      <p id="dropdown-user-name" class="font-medium text-gray-700">User Name</p>
+      <p id="dropdown-user-email" class="text-sm text-gray-500">user@example.com</p>
+    </div>
+    <div class="p-4 border-b border-gray-200 flex items-center justify-center flex-col">
+      <p id="logout" class="font-medium text-gray-700 cursor-pointer">Logout -></p>
+    </div>
+
+  </div>
+
+  <div class="text-yellow-300 flex items-center flex-col">
+    <div class="py-4">
+      <span class="text-8xl font-bold">Discover IIT Roorkee Clubs</span>
+    </div>
+    <div class="py-4">
+      <span class="text-2xl">Where passions meet purpose! Explore, connect, and grow with the vibrant community of clubs
+        at IIT Roorkee.</span>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center py-20">
+    <div class="grid gap-24 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-center text-2xl">
+      <!-- Technical -->
+      <div
+        class="bg-blue-500 text-white rounded-xl shadow-md text-center h-96 w-60 flex flex-col justify-between mx-auto mt-10 bg-[url('../images/bg1.jpg')] bg-cover bg-center">
+        <!-- Heading -->
+        <div class="py-6">
+          <span class="text-xl font-bold">Technical</span>
+        </div>
+
+        <!-- Image Carousel -->
+        <div class="relative bg-transparent text-gray-800 rounded w-52 h-52 mx-auto overflow-hidden">
+          <div id="carousel1" class="flex transition-transform duration-500 ease-in-out">
+            <img src="./images/clubs/technical/imgClub.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/infosec.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/mdg1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/pag1.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/robocon1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/sdslabs1.png" alt="Image 3" class="w-full flex-shrink-0">
+
+            <!-- duplicate -->
+            <img src="./images/clubs/technical/imgClub.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/infosec.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/mdg1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/pag1.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/robocon1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/technical/sdslabs1.png" alt="Image 3" class="w-full flex-shrink-0">
+
+          </div>
+        </div>
+
+        <!-- Explore Button -->
+        <div
+          class="bg-white text-gray-800 text-xl font-bold rounded-full w-52 h-16 flex items-center justify-center mx-auto my-6">
+          <span><a href="/technical">Explore</a></span>
+        </div>
+      </div>
+
+      <!-- Cultural -->
+      <div
+        class="bg-blue-500 text-white rounded-xl shadow-md text-center h-96 w-60 flex flex-col justify-between mx-auto mt-10 bg-[url('../images/bg2.png')] bg-cover bg-center">
+        <!-- Heading -->
+        <div class="py-6">
+          <span class="text-xl font-bold">Cultural</span>
+        </div>
+
+        <!-- Image Carousel -->
+        <div class="relative bg-transparent text-gray-800 rounded w-52 h-52 mx-auto overflow-hidden">
+          <div id="carousel2" class="flex transition-transform duration-500 ease-in-out">
+            <img src="./images/clubs/cultural/campusBeats.jpg" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/choreo1.png" alt="Image 2" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/cine.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/cinemaclub2.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/culinaryClub.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/debatiingSociety2.png" alt="Image 3" class="w-full flex-shrink-0">
+            <!-- duplicate -->
+            <img src="./images/clubs/cultural/campusBeats.jpg" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/choreo1.png" alt="Image 2" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/cine.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/cinemaclub2.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/culinaryClub.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/cultural/debatiingSociety2.png" alt="Image 3" class="w-full flex-shrink-0">
+          </div>
+        </div>
+
+        <!-- Explore Button -->
+        <div
+          class="bg-white text-gray-800 text-xl font-bold rounded-full w-52 h-16 flex items-center justify-center mx-auto my-6">
+          <span><a href="/cultural">Explore</a></span>
+        </div>
+      </div>
+
+      <!-- social -->
+      <div
+        class="bg-blue-500 text-white rounded-xl shadow-md text-center h-96 w-60 flex flex-col justify-between mx-auto mt-10 bg-[url('../images/bg3.png')] bg-cover bg-center">
+        <!-- Heading -->
+        <div class="py-6">
+          <span class="text-xl font-bold">social</span>
+        </div>
+
+        <!-- Image Carousel -->
+        <div class="relative bg-transparent text-gray-800 rounded w-52 h-52 mx-auto overflow-hidden">
+          <div id="carousel3" class="flex transition-transform duration-500 ease-in-out">
+            <img src="./images/clubs/social/ccf1.png" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/cry1.png" alt="Image 2" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/eco1.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/outreach1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/qagaar1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/uba1.jpg" alt="Image 3" class="w-full flex-shrink-0">
+
+            <!-- duplicate -->
+            <img src="./images/clubs/social/ccf1.png" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/cry1.png" alt="Image 2" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/eco1.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/outreach1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/qagaar1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/social/uba1.jpg" alt="Image 3" class="w-full flex-shrink-0">
+
+          </div>
+        </div>
+
+        <!-- Explore Button -->
+        <div
+          class="bg-white text-gray-800 text-xl font-bold rounded-full w-52 h-16 flex items-center justify-center mx-auto my-6">
+          <span>Explore</span>
+        </div>
+      </div>
+
+      <!-- Branch Specific -->
+      <div
+        class="bg-blue-500 text-white rounded-xl shadow-md text-center h-96 w-60 flex flex-col justify-between mx-auto mt-10 bg-[url('../images/bg4.png')] bg-cover bg-center">
+        <!-- Heading -->
+        <div class="py-6">
+          <span class="text-xl font-bold">Branch Specific</span>
+        </div>
+
+        <!-- Image Carousel -->
+        <div class="relative bg-transparent text-gray-800 rounded w-52 h-52 mx-auto overflow-hidden">
+          <div id="carousel4" class="flex transition-transform duration-500 ease-in-out">
+            <img src="./images/clubs/branch-specific/aiche.png" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/branch-specific/cec1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/branch-specific/eess1.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/branch-specific/miess1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <!-- duplicate -->
+            <img src="./images/clubs/branch-specific/aiche.png" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/branch-specific/cec1.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/branch-specific/eess1.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/branch-specific/miess1.png" alt="Image 3" class="w-full flex-shrink-0">
+          </div>
+        </div>
+
+        <!-- Explore Button -->
+        <div
+          class="bg-white text-gray-800 text-xl font-bold rounded-full w-52 h-16 flex items-center justify-center mx-auto my-6">
+          <span>Explore</span>
+        </div>
+      </div>
+
+      <!-- Magazines -->
+      <div
+        class="bg-blue-500 text-white rounded-xl shadow-md text-center h-96 w-60 flex flex-col justify-between mx-auto mt-10 bg-[url('../images/bg5.jpg')] bg-cover bg-center">
+        <!-- Heading -->
+        <div class="py-6">
+          <span class="text-xl font-bold">Magazines</span>
+        </div>
+
+        <!-- Image Carousel -->
+        <div class="relative bg-transparent text-gray-800 rounded w-52 h-52 mx-auto overflow-hidden">
+          <div id="carousel5" class="flex transition-transform duration-500 ease-in-out">
+            <img src="./images/clubs/magazines/geekGazette1.jpg" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/magazines/ksitij.png" alt="Image 2" class="w-full flex-shrink-0">
+            <img src="./images/clubs/magazines/watchOut.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <!-- duplicate -->
+            <img src="./images/clubs/magazines/geekGazette1.jpg" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/magazines/ksitij.png" alt="Image 2" class="w-full flex-shrink-0">
+            <img src="./images/clubs/magazines/watchOut.jpg" alt="Image 3" class="w-full flex-shrink-0">
+          </div>
+        </div>
+
+        <!-- Explore Button -->
+        <div
+          class="bg-white text-gray-800 text-xl font-bold rounded-full w-52 h-16 flex items-center justify-center mx-auto my-6">
+          <span>Explore</span>
+        </div>
+      </div>
+
+      <!-- Miscellaneous -->
+      <div
+        class="bg-blue-500 text-white rounded-xl shadow-md text-center h-96 w-60 flex flex-col justify-between mx-auto mt-10 bg-[url('../images/bg6.jpg')] bg-cover bg-center">
+        <!-- Heading -->
+        <div class="py-6">
+          <span class="text-xl font-bold">Miscellaneous</span>
+        </div>
+
+        <!-- Image Carousel -->
+        <div class="relative bg-transparent text-gray-800 rounded w-52 h-52 mx-auto overflow-hidden">
+          <div id="carousel6" class="flex transition-transform duration-500 ease-in-out">
+            <img src="./images/clubs/miscellaneous/arp.png" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/cdc.jpg" alt="Image 2" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/esports.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/hec.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/iarc.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/p-block.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <!-- duplicate -->
+            <img src="./images/clubs/miscellaneous/arp.png" alt="Image 1" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/cdc.jpg" alt="Image 2" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/esports.png" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/hec.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/iarc.jpg" alt="Image 3" class="w-full flex-shrink-0">
+            <img src="./images/clubs/miscellaneous/p-block.jpg" alt="Image 3" class="w-full flex-shrink-0">
+          </div>
+        </div>
+
+        <!-- Explore Button -->
+        <div
+          class="bg-white text-gray-800 text-xl font-bold rounded-full w-52 h-16 flex items-center justify-center mx-auto my-6">
+          <span>Explore</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

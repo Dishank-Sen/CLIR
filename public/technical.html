@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Clubs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./javascript/authenticate.js"></script>
+    <script src="./javascript/getInfo.js"></script>
+    <script src="./javascript/logout.js"></script>
+    <script src="./javascript/technical.js"></script>
+</head>
+
+<body class="bg-green-700">
+    <div class="headerSection">
+        <div
+            class="mainPortion flex flex-wrap justify-between items-center mx-4 lg:mx-10 xl:mx-20 my-20 py-6 bg-white rounded-full">
+            <div class="firstPortion lg:px-4 px-2">
+                <div class=" flex items-center flex-wrap">
+                    <div class="icon sm:pl-2 sm:pr-10 px-1">
+                        <a href="/">
+                            <!-- for dekstop -->
+                            <img src="./images/logo7.png" alt="" class="h-10 w-auto hidden xl:block ">
+                            <!-- for mobile -->
+                            <img src="./images/logo6.png" alt="" class="h-10 w-auto block xl:hidden ">
+                        </a>
+                    </div>
+                    <div class="hidden lg:flex">
+                        <div
+                            class="elements flex items-center space-x-8 flex-wrap justify-between lg:flex px-2 text-gray-500 text-lg">
+                            <div class="group relative">
+                                <span><a href="/clubs">Clubs</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/dashboard">Dashboard</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/adminPortal">Admin Portal</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/announcement">Announcement</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                            <div class="group relative">
+                                <span><a href="/createClub">Create Club</a></span>
+                                <span
+                                    class="absolute -bottom-1 left-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                                <span
+                                    class="absolute -bottom-1 right-1/2 w-0 transition-all h-0.5 bg-indigo-600 group-hover:w-3/6"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="secondPortion px-1 sm:px-4">
+                <div class="flex items-center space-x-2 text-lg">
+                    <div id="login"
+                        class="logIn bg-gray-200 rounded-full px-4 py-2 sm:px-6 sm:py-4 cursor-pointer hover:bg-gray-300">
+                        <span><a href="/login">Log In</a></span>
+                    </div>
+                    <div id="signup"
+                        class="SignIn bg-gray-800 text-white px-4 py-2 sm:px-6 sm:py-4 rounded-full cursor-pointer hover:bg-gray-700">
+                        <span><a href="/signup">Sign Up</a></span>
+                    </div>
+                    <div>
+                        <img src="./images/profile.svg" alt="" class="h-14 w-auto hidden px-4 cursor-pointer"
+                            id="profile">
+                    </div>
+                    <div>
+                        <img src="./images/menu.svg" alt="" class="h-6 w-auto block lg:hidden px-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dropdown hidden absolute right-10 top-48 w-[400px] h-[500px] bg-white border border-gray-200 rounded-lg shadow-lg z-10"
+        id="profileDropdown">
+
+        <div class="p-4 border-b border-gray-200 flex items-center justify-center flex-col">
+            <p id="dropdown-user-name" class="font-medium text-gray-700">User Name</p>
+            <p id="dropdown-user-email" class="text-sm text-gray-500">user@example.com</p>
+        </div>
+        <div class="p-4 border-b border-gray-200 flex items-center justify-center flex-col">
+            <p id="logout" class="font-medium text-gray-700 cursor-pointer">Logout -></p>
+        </div>
+
+    </div>
+
+    <div class="flex items-center justify-center text-yellow-400 flex-col">
+        <div class="text-6xl font-bold py-6">
+            <span id="category">Technical Clubs</span>
+        </div>
+        <div class="text-xl py-6">
+            <span>Innovate, Create, and Lead the Future</span>
+        </div>
+    </div>
+
+    <!-- clubs section -->
+    <div id="clubSection" class="grid gap-24 justify-center items-center text-2xl mx-10">
+        <!-- Clubs will be dynamically appended here -->
+    </div>
+</body>
+
+</html>
