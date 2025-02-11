@@ -17,7 +17,6 @@ const Member = require('../models/member');
 const fs = require('fs');
 
 const app = express();
-const port = process.env.PORT;
 
 // Middleware
 app.use(cors());

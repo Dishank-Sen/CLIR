@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         // console.log(data);
         // console.log(data.message);
         localStorage.setItem('userId', userId);
-        window.location.replace('http://localhost:3000');
+        window.location.replace('/');
       } else {
         const errorData = await response.json();
         // console.log(errorData);
