@@ -22,11 +22,11 @@ const app = express();
 app.use(cors());
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "..", "public")));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
-app.use("../uploads", express.static("uploads"));
+app.use("./uploads", express.static("uploads"));
 app.set('view engine','ejs')
-app.set('views', path.join(__dirname, '../public', 'views'));
+app.set('views', path.join(__dirname, './public', 'views'));
 
 // Configure Multer Storage
 const storage = multer.diskStorage({
@@ -60,7 +60,7 @@ app.get('/signup', (req, res) => {
 
 // Serve login page
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'login.html'));
+    res.sendFile(path.join(__dirname, './public', 'login.html'));
 });
 
 app.get('/clubs', (req, res) => {
@@ -68,40 +68,40 @@ app.get('/clubs', (req, res) => {
 });
 
 app.get('/createClub', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'createClub.html'));
+    res.sendFile(path.join(__dirname, './public', 'createClub.html'));
 });
 
 app.get('/technical', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'technical.html'));
+    res.sendFile(path.join(__dirname, './public', 'technical.html'));
 });
 
 app.get('/cultural', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'cultural.html'));
+    res.sendFile(path.join(__dirname, './public', 'cultural.html'));
 });
 
 
 app.get('/adminPortal',(req,res) => {
-    res.sendFile(path.join(__dirname, '../public', 'adminPortal.html'));
+    res.sendFile(path.join(__dirname, './public', 'adminPortal.html'));
 });
 
 app.get('/adminDashboard',(req,res) => {
-    res.sendFile(path.join(__dirname, '../public', 'adminDashboard.html'));
+    res.sendFile(path.join(__dirname, './public', 'adminDashboard.html'));
 });
 
 app.get('/dashboard',(req,res) => {
-    res.sendFile(path.join(__dirname, '../public', 'dashboard.html'));
+    res.sendFile(path.join(__dirname, './public', 'dashboard.html'));
 });
 
 app.get('/joinClub',(req,res) => {
-    res.sendFile(path.join(__dirname, '../public', 'joinClub.html'));
+    res.sendFile(path.join(__dirname, './public', 'joinClub.html'));
 });
 
 app.get('/announcement',(req,res) => {
-    res.sendFile(path.join(__dirname, '../public', 'announcement.html'));
+    res.sendFile(path.join(__dirname, './public', 'announcement.html'));
 });
 
 app.get('/featuredClub',(req,res) => {
-    res.sendFile(path.join(__dirname, '../public', 'featuredClub.html'));
+    res.sendFile(path.join(__dirname, './public', 'featuredClub.html'));
 });
 
 // API endpoint for sign up
@@ -560,6 +560,6 @@ app.post('/api/showClub', async (req,res) =>{
 })
 
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(3000, () => {
+  console.log(process.env.PORT);
 });
