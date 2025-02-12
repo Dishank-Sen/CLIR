@@ -8,5 +8,15 @@ services:
     envVars:
       - key: PORT
         value: 3000
-      - key: MONGO_URI
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: API_ENVIRONVENT_VARIABLE
         sync: false
