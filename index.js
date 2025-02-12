@@ -560,8 +560,8 @@ app.post('/api/showClub', async (req,res) =>{
 })
 
 
-// app.listen(3000, () => {
-//   console.log(process.env.PORT);
-// });
+app.listen(process.env.PORT, () => {
+  console.log(`http://localhost:${process.env.PORT}`);
+});
 
 module.exports = app;
