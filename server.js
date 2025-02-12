@@ -3,17 +3,17 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const path = require('path');
-const User = require('../models/User');
-const Club = require('../models/club');
-const connectDB = require('../config/userDB');
-const connectClubDB = require('../config/clubsDB');
+const User = require('./models/User');
+const Club = require('./models/club');
+const connectDB = require('./config/userDB');
+const connectClubDB = require('./config/clubsDB');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
-const uploadFile = require('../cloudinary/cloudConfig');
-const uploadFile1 = require('../cloudinary/cloudConfig1');
-const Resource = require('../models/resource');
-const Member = require('../models/member');
+const uploadFile = require('./cloudinary/cloudConfig');
+const uploadFile1 = require('./cloudinary/cloudConfig1');
+const Resource = require('./models/resource');
+const Member = require('./models/member');
 const fs = require('fs');
 
 const app = express();
@@ -50,12 +50,12 @@ app.get('/api',(req,res) => {
 });
 
 app.get('/',(req,res) => {
-  res.sendFile(path.join(__dirname,'../public','index.html'));
+  res.sendFile(path.join(__dirname,'./public','index.html'));
 });
 
 // Serve signup page
 app.get('/signup', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public', 'signup.html'));
+    res.sendFile(path.join(__dirname, './public', 'signup.html'));
 });
 
 // Serve login page
@@ -64,7 +64,7 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/clubs', (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "public", "clubs.html"));
+    res.sendFile(path.join(__dirname, "./public", "clubs.html"));
 });
 
 app.get('/createClub', (req, res) => {
@@ -560,4 +560,6 @@ app.post('/api/showClub', async (req,res) =>{
 })
 
 
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
