@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./css/output.css" rel="stylesheet">
   <title>User Registration</title>
+  <script src="./javascript/signup.js" defer></script>
 </head>
 <body class="dark:bg-gray-900 h-screen flex justify-center items-center">
 
@@ -14,7 +15,7 @@
     <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
         <div class="flex justify-center mx-auto">
             <img class="w-auto h-7 sm:h-8" src="./images/logo.svg" alt="">
-        </div>t
+        </div>
 
         <p class="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">
             Welcome back!
@@ -43,25 +44,33 @@
         </div>
         <form id="signupForm">
             <div class="mt-4">
-                <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="LoggingEmailAddress">Username</label>
+                <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="username">Username</label>
                 <input id="username" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="text" required/>
             </div>
             <div class="mt-4">
-                <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="LoggingEmailAddress">Email Address</label>
+                <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="email">Email Address</label>
                 <input id="email" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" required/>
+            </div>
+            
+            <div class="mt-4">
+                <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="institutesDropdown">Institutes</label>
+                <select class="block w-full p-2 border border-gray-300 rounded-md" id="institutesDropdown" required>
+                    <option value="none" selected>None</option>
+                    <!-- institues will be shown here -->
+                </select>
             </div>
     
             <div class="mt-4">
                 <div class="flex justify-between">
-                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="loggingPassword">Password</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="password">Password</label>
                 </div>
-    
                 <input id="password" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" required/>
+                
             </div>
 
             <div class="mt-4">
                 <div class="flex justify-between">
-                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="loggingPassword">Confirm Password</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="confirmPassword">Confirm Password</label>
                 </div>
     
                 <input id="confirmPassword" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" required/>
@@ -76,7 +85,11 @@
     </div>
 </div>
 
+        <div id="overlay" class="hidden fixed inset-0 bg-gray-900 bg-opacity-100 z-50"></div>
+            <div class="container fixed inset-0 flex justify-center items-center" style="display:none;" id="loading">
+                <img src="./images/loading2.svg" alt="loading..." class="">
+        </div>
 
-  <script src="./javascript/signup.js"></script>
+
 </body>
 </html>

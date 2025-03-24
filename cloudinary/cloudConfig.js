@@ -1,5 +1,8 @@
 const cloudinary = require('cloudinary');
 const fs = require('fs');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 // Configure Cloudinary
 cloudinary.config({
@@ -8,23 +11,22 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const uploadFile = (filePath) => {
-  return new Promise((resolve, reject) => {
-    // Check if the file exists at the provided path
-    if (fs.existsSync(filePath)) {
-      cloudinary.uploader.upload(filePath, (result, error) => {
-        if (error) {
-          console.error('Error uploading file:', error);
-          reject(error); // Reject the promise in case of an error
-        } else {
-          resolve(result); // Resolve the promise with the upload result
-        }
-      });
-    } else {
-      console.log('File not found at:', filePath);
-      reject('File not found'); // Reject the promise if the file doesn't exist
-    }
-  });
+const uploadFile = async (filePath, uploadOption) => {
+   try {
+      if(!filePath){
+        return null;
+      }
+      const response = await cloudinary.v2.uploader.upload(filePath, uploadOption);
+      if(!response){
+         return null;
+      }
+      fs.unlinkSync(filePath);
+      return response.secure_url;
+   } catch (error) {
+      console.log(error);
+      fs.unlinkSync(filePath);
+      return null;
+   }
 };
 
 module.exports = uploadFile;

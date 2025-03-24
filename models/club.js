@@ -4,13 +4,11 @@ const clubSchema = new mongoose.Schema({
   clubName: {
     type: String,
     required: true,
-    unique: true, // Ensure uniqueness
     trim: true,
-    index: true  // Explicitly create an index
   },
   admin: {
     name: { type: String, required: true },
-    email: { type: String, required: true, unique: true, lowercase: true },
+    email: { type: String, required: true, lowercase: true },
     phone: { type: String, required: true },
     profileImage: { type: String },
   },
@@ -23,7 +21,7 @@ const clubSchema = new mongoose.Schema({
     enum: ["Technical", "Cultural", "Social", "Branch Specific", "Magazines", "Miscellaneous"],
     required: true
   },
-  email: { type: String, required: true, unique: true, lowercase: true },
+  email: { type: String, required: true, lowercase: true },
 }, { timestamps: true });
 
 module.exports = mongoose.model("Club", clubSchema);

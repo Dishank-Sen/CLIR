@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const adminId = localStorage.getItem('adminId');
     const clubName = document.getElementById('clubName');
     try{
+        const adminId = localStorage.getItem('adminId');
         const response = await fetch('/api/getAdminInfo', {
         method: 'POST',
         headers: {

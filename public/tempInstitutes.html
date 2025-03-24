@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIR-Clubs Hub</title>
+    <link href="./css/output.css" rel="stylesheet">
+    <script src="./javascript/loadTempInstitute.js" defer></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+    <div class="container mx-auto max-w-6xl">
+        <!-- Header -->
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Temporary Institute Details</h1>
+
+        <!-- Search Bar -->
+        <div class="mb-6">
+            <input type="text" id="searchInput" placeholder="Search Institute..."
+                class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400">
+        </div>
+
+        <!-- Institutes List -->
+        <div id="instituteContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="hidden bg-[#28a745]"></div>
+            <!-- Dynamic institute cards will be inserted here -->
+        </div>
+    </div>
+
+</body>
+</html>

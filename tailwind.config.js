@@ -13,6 +13,9 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-motion"),
+    require("flyonui"),
+    require("flyonui/plugin")
+  ],
 }
 
