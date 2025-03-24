@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "build": "vite build",
     "build:css": "npx tailwindcss -i ./public/css/style.css -o ./public/css/output.css --minify",
     "postinstall": "npm run build:css && npm run build"
   },
