@@ -923,14 +923,14 @@ app.get('/api/retrieveRegionData', (req,res) => {
   }
 });
 
-app.get('/loadClubs/:instituteName', async (req,res) => {
-    try {
-      const instituteName = decodeURIComponent(req.params.instituteName);
-      const institute = await 
-    } catch (error) {
+// app.get('/loadClubs/:instituteName', async (req,res) => {
+//     try {
+//       const instituteName = decodeURIComponent(req.params.instituteName);
+//       const institute = await 
+//     } catch (error) {
       
-    }
-});
+//     }
+// });
 
 app.listen(process.env.PORT, () => {
   console.log(`http://localhost:${process.env.PORT}`);
