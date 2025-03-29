@@ -1,11 +1,4 @@
-// this will show all the approved institute in the institute Section
-
-// const { urlencoded } = require("body-parser");
-
 document.addEventListener('DOMContentLoaded', async () => {
-    // Function to create and append institute cards
-    let instituteName;
-
     function displayInstitutes(data) {
         const container = document.getElementById("instituteContainer");
         container.innerHTML = ""; // Clear previous entries
@@ -20,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <img src="${inst.logo}" alt="" class="w-14 h-14 rounded-full">
                     </div>
                     <div class="flex justify-center gap-4">
-                        <h1 class="text-3xl font-bold" id="instituteName">${inst.name}</h1>
+                        <h1 class="text-3xl font-bold">${inst.name}</h1>
                         <a href="${inst.website}"><img src="./images/link-svgrepo-com.svg" alt="" class="h-6 w-auto"></a>
                     </div>
                     <div class="flex justify-start gap-4">
@@ -32,40 +25,38 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <p class="text-md text-gray-600">${inst.contact}</p>
                     </div>
                     <div class="flex justify-center">
-                        <button class="bg-blue-500 rounded-lg px-4 py-2 text-xl font-bold text-white" id="explore">Explore</button>
+                        <button class="bg-blue-500 rounded-lg px-4 py-2 text-xl font-bold text-white explore-btn" data-name="${inst.name}">Explore</button>
                     </div>
                 </div>
             `;
             container.appendChild(card);
         });
+
+        // Attach event listeners to all Explore buttons after they are created
+        document.querySelectorAll(".explore-btn").forEach(button => {
+            button.addEventListener("click", (event) => {
+                const instituteName = event.target.getAttribute("data-name");
+                window.location.assign(`/loadClubs/${encodeURIComponent(instituteName)}`);
+            });
+        });
     }
 
-    // Function to fetch data from API
     async function fetchInstitutes() {
         try {
             const response = await fetch("/api/institutes");
             const data = await response.json();
-            if(!data.message){
-                console.log("no institute");
-            }else{
-                instituteName = data.message;
-                displayInstitutes(data.message);
+            console.log("Fetched data:", data); // Debugging log
+
+            if (!data.message || !Array.isArray(data.message)) {
+                console.log("Invalid data format:", data);
+                return;
             }
+
+            displayInstitutes(data.message);
         } catch (error) {
             console.error("Error fetching institute data:", error);
         }
     }
 
-    // This function will send the name of the institutes in the url when explore button is clicked
-
-    const sendInstituteName = (instituteName) => {
-        const urlencodedName = encodeURIComponent(instituteName);
-        document.getElementById('explore').addEventListener('click', () => {
-            window.location.assign(`/loadClubs/${urlencodedName}`);
-        })
-
-    }
-
     fetchInstitutes();
-    sendInstituteName(instituteName)
 });
