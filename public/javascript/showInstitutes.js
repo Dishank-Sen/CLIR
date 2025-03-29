@@ -1,6 +1,6 @@
 // this will show all the approved institute in the institute Section
 
-const { urlencoded } = require("body-parser");
+// const { urlencoded } = require("body-parser");
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Function to create and append institute cards
