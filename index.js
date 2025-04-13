@@ -517,7 +517,7 @@ app.post('/api/addFile', upload.single('file'), async (req, res) => {
 
 
   const localFilePath = req.file.path;
-  const result = await uploadFile1(localFilePath);
+  const result = await uploadFile(localFilePath);
   const asset_id = result.asset_id;
   const secure_url = result.secure_url;
   const downloadURL = `https://res-console.cloudinary.com/dijo7olfy/media_explorer_thumbnails/${asset_id}/download`;
